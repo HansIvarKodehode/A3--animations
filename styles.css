@@ -22,12 +22,19 @@ body {
   animation-timing-function: ease;
 }
 header,
-main,
-footer {
+main {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 20px 0;
+}
+.flexCol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+p {
+  margin: 5px;
 }
 
 /* the button changes color on hover, with transition making sure it takes a little while 
@@ -103,4 +110,66 @@ button:hover {
   animation-timing-function: ease;
   color: white;
   background-color: blue;
+}
+
+/* bonus task card: */
+
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2%;
+}
+.footerCards:focus {
+  animation: move;
+  animation-duration: 2s;
+  animation-timing-function: ease;
+}
+.card {
+  max-width: 30%;
+  border: 1px solid darkslateblue;
+  border-top: 0px solid black;
+  /* padding: 5px 10px; */
+  /* z-index: 1;
+  position: relative; */
+}
+.imgCont {
+  padding: 0;
+  margin: 0;
+  /* overflow: hidden;
+  background-image: url("images/leaningOnWall.avif");
+  background-size: cover;
+  min-height: 6rem;
+  background-position: right; */
+}
+.profilePic {
+  max-width: 100%;
+  /* max-height: 100%; */
+  /* border-radius: 100px; */
+  border: none;
+  z-index: 1;
+  position: relative;
+}
+.profilePic:hover {
+  max-width: 150%;
+  z-index: 2;
+  position: relative;
+  /* animation: rotate;
+  animation-duration: 0.1s; */
+  transition: 1s;
+}
+.textDiv {
+  padding: 0 10px;
+  margin: 10px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.textDiv:hover {
+  color: cyan;
+  background-color: firebrick;
+  transition: 1s;
+}
+.text {
+  margin: 5px 0;
+  padding: 0;
 }
