@@ -1,24 +1,106 @@
-#doof {
-  max-width: 85%;
-  margin: 0 auto;
-  animation: move;
-  animation-duration: 5s;
-}
-header {
-  display: flex;
+/*
+5 things need to be done:
+1: make pag with minimum structure
+2: make and apply one animation
+3: make use of the transition property
+4: use the transform property. maybe rotate would be neat.
+5: combine animation, transform, and transition.
+
+Bonus: make a card that uses all three effetivly
+*/
+
+body {
+  overflow-x: hidden;
 }
 
+#doof {
+  max-width: 85vh;
+  max-height: 50vh;
+  margin: 0 auto;
+  animation: move;
+  animation-duration: 2s;
+  animation-timing-function: ease;
+}
+header,
+main,
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 0;
+}
+
+/* the button changes color on hover, with transition making sure it takes a little while 
+This satisfies task 3 */
+button {
+  padding: 6px 12px;
+}
+button:hover {
+  background-color: blue;
+  color: white;
+  transition: 0.5s;
+}
+
+/*  That's multiple uses of transform. Both rotate and translateX
+    Should satisfy task 4 */
+.rotate:hover {
+  /* transform: rotate("0.5rad"); */
+  /* transition-duration: 1s; */
+  animation: rotate;
+  animation-duration: 0.8s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(90deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  75% {
+    transform: rotate(270deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* #1: doof moves with a custom animation, satisfying task 2 */
 @keyframes move {
   0% {
     transform: translateX(0);
     opacity: 1;
+    /* transition: 0.1s; */
+  }
+  49% {
+    transform: translateX(100vw);
+    opacity: 0;
+    /* transition: 1s; */
   }
   50% {
-    transform: translateX(100px);
-    opacity: 0.5;
+    transform: translateX(-200vw);
+    opacity: 0;
+    /* transition: 0.1s; */
   }
   100% {
-    transform: translateX(200px);
+    transform: translateX(0);
     opacity: 1;
+    /* transition: 1s; */
   }
+}
+
+/* this should satisfy task 5 */
+.t5:focus {
+  transition: 1s;
+  animation: rotate;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease;
+  color: white;
+  background-color: blue;
 }
